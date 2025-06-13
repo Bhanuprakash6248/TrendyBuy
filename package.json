@@ -2,7 +2,7 @@
   "name": "nxt-trendz-cart-features",
   "private": true,
   "version": "1.0.0",
-  "packageManager": "npm@8.0.0",
+  "packageManager": "npm@8.19.4",
   "engines": {
     "node": "22.x",
     "npm": ">=6"
