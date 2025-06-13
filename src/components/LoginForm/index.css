@@ -19,8 +19,6 @@
 .login-website-logo-mobile-img {
   width: 150px;
   font-size: 10px;
- 
-
 }
 
 @media screen and (min-width: 992px) {
@@ -31,7 +29,6 @@
 
 .login-img {
   width: 278px;
-
 }
 
 @media screen and (min-width: 992px) {
@@ -44,8 +41,7 @@
 }
 
 .login-website-logo-desktop-img {
-  width:150px;
-
+  width: 150px;
 }
 
 @media screen and (max-width: 991px) {
@@ -69,7 +65,7 @@
     width: 350px;
     flex-shrink: 0;
     box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.08);
-    padding:20x 48px 64px 48px;
+    padding: 20x 48px 64px 48px;
   }
 }
 
