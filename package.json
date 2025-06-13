@@ -46,9 +46,7 @@
     "lint:fix": "eslint --fix src/",
     "format": "prettier --write \"./src\"",
     "run-all": "npm-run-all --parallel test lint:fix",
-    "vercel-build": "pnpm install --no-frozen-lockfile && next build"
-
-
+    "vercel-build": "npm install && npm run build"
   },
   "lint-staged": {
     "*.js": [
