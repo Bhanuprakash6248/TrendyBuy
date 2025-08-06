@@ -11,6 +11,44 @@ class LoginForm extends Component {
     showSubmitError: false,
     errorMsg: '',
   }
+    componentDidMount() {
+    if (document.getElementById("kore-sdk")) return;
+
+    const script = document.createElement("script");
+    script.id = "kore-sdk";
+    script.src =
+      "https://cdn.kore.ai/platform/latest/sdk/web/kore-web-sdk-umd-chat.min.js";
+    script.async = true;
+
+    script.onload = () => {
+      if (window.KoreChatSDK) {
+        const botOptions = {
+          clientId: "cs-f127be5f-513c-5f8a-ad2c-2df1e2cc16ef",
+          clientSecret: "sj8oJ2k8DXnqTIffg1ESQzytdnzqjbsOs30bHj7gkdo=", // optional if using JWTUrl
+          // JWTUrl: "https://yourdomain.com/api/kore/generate-jwt", // If you're using JWT instead of clientSecret
+          botInfo: {
+            name: "Bank Assist Bot01",
+            _id: "st-626badf6-a46b-50a4-ac50-e2e2a1f1e3cc",
+          },
+          userIdentity: "bhanu@example.com",
+          isAnonymous: false,
+        };
+
+        if (!window.koreChatInstance) {
+          window.koreChatInstance = new window.KoreChatSDK.chatWindow(botOptions);
+          window.koreChatInstance.show(document.getElementById("chatContainer"));
+        }
+      } else {
+        console.error("❌ KoreChatSDK not loaded");
+      }
+    };
+
+    script.onerror = (e) => {
+      console.error("❌ Failed to load Kore SDK script", e);
+    };
+
+    document.body.appendChild(script);
+  }
 
   onChangeUsername = event => {
     this.setState({username: event.target.value})
@@ -126,6 +164,7 @@ class LoginForm extends Component {
           </button>
           {showSubmitError && <p className="error-message">*{errorMsg}</p>}
         </form>
+        <div id="chatContainer" style={{ width: "100%", height: "500px" }}></div>
       </div>
     )
   }
