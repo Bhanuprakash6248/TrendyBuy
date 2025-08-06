@@ -50,5 +50,30 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+     <script src="https://cdn.jsdelivr.net/npm/kore-web-sdk@11.16.0/dist/umd/kore-web-sdk-umd-chat.min.js"></script>
+
+    <!-- Initialize Kore Chat -->
+    <script>
+      window.onload = function () {
+        KoreChatSDK.chatConfig = {
+          botOptions: {
+            clientId: 'cs-f127be5f-513c-5f8a-ad2c-2df1e2cc16ef', // <-- use your Client ID
+            clientSecret: 'sj8oJ2k8DXnqTIffg1ESQzytdnzqjbsOs30bHj7gkdo=', // <-- your Client Secret
+            botInfo: {
+              name: 'Bank Assist Bot01',
+              _id: 'st-626badf6-a46b-50a4-ac50-e2e2a1f1e3cc'     // <-- your bot ID
+            },
+            API_KEY_CONFIG: {
+              enable: true,
+              KEY: '3bccfa3c74d0485cb043ed23d010585290a4085be61441ed844998a2908c0261st62', // <-- Kore.ai API Key
+            },
+          },
+          allowIframe: false,
+          isSendButton: true,
+        };
+
+        new KoreChatSDK.chatWindow().show(KoreChatSDK.chatConfig);
+      };
+    </script>
   </body>
 </html>
